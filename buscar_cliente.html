@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Seguros</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#"><b>Seguros Lucho</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Registrar Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="buscar_cliente.html">Consultar Información Clientes</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card m-4">
+            <div class="card-header">
+                Buscar Cliente
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <label for="">Cédula</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-credit-card-2-front"></i></span>
+                            </div>
+                            <input type="number" id="cedula" name="cedula" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="div-btn-submit" class="text-center col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <button type="button" onclick="buscarCliente();" class="btn btn-success">
+                                <span class="text"><b>Buscar Cliente</b> </span>
+                                <span class="icon  text-white-50">
+                                    <i class="fas fa-save"></i>
+                                </span>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card m-4" id="div-resultado-busqueda" style="display: none;">
+            <div class="card-header">
+                Resultado Busqueda
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for="">Nombres</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                            </div>
+                            <input type="text" id="nombres" name="nombres" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for="">Apellidos</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                            </div>
+                            <input type="text" id="apellidos" name="apellidos" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for=""> Fecha Nacimiento</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week-fill"></i></span>
+                            </div>
+                            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for=""> Fecha Registro</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week-fill"></i></span>
+                            </div>
+                            <input type="date" id="fecha_registro" name="fecha_registro" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for="">Valor Plan</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-currency-dollar"></i></span>
+                            </div>
+                            <input type="number" id="valor_plan" name="valor_plan" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                        <label for="">Monto Asegurado</label>
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-currency-dollar"></i></span>
+                            </div>
+                            <input type="number" id="monto_asegurado" name="monto_asegurado" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="div-btn-submit" class="text-center col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <button id="btn-desactivar-cliente" type="submit" class="btn btn-danger" onclick="DesactivarCliente()">
+                                <span class="text">Desactivar Cliente</span>
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-save"></i>
+                                </span>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script>
+        var idCliente;
+
+        function buscarCliente() {
+
+            var cedula = document.getElementById("cedula").value;
+
+            $.ajax({
+                method: "GET",
+                data: {
+                    cedula: cedula
+                },
+                url: 'https://localhost:44398/api/Seguros/GetBYCedula/',
+                beforeSend: function() {
+                    //Funciones.abrirModalCargando();
+                },
+                success: function(data) {
+
+
+                    if (data.result == 1) {
+                        idCliente = data.data.id;
+                        console.log(idCliente);
+                        arreglo1FechaRegistro = data.data.fecha_registro.split("-", 3);
+                        arreglo2FechaRegistro = arreglo1FechaRegistro[2].split("T", 1);
+                        arreglo1FechaNacimiento = data.data.fecha_nacimiento.split("-", 3);
+                        arreglo2FechaNacimiento = arreglo1FechaNacimiento[2].split("T", 1);
+                        document.getElementById("div-resultado-busqueda").style.display = "block";
+                        document.getElementById("nombres").value = data.data.nombres;
+                        document.getElementById("apellidos").value = data.data.apellidos;
+                        document.getElementById("fecha_nacimiento").value = arreglo1FechaNacimiento[0] + "-" + arreglo1FechaNacimiento[1] + "-" + arreglo2FechaRegistro[0];
+                        document.getElementById("fecha_registro").value = arreglo1FechaRegistro[0] + "-" + arreglo1FechaRegistro[1] + "-" + arreglo2FechaNacimiento[0];
+                        document.getElementById("valor_plan").value = data.data.valor_plan;
+                        document.getElementById("monto_asegurado").value = data.data.monto_asegurado;
+                    } else {
+                        document.getElementById("div-resultado-busqueda").style.display = "none";
+                        alert(data.message);
+                    }
+                    console.log(data);
+                    //Funciones.cerrarModalCargando();
+                },
+                error: function(msj) {
+                    console.log(msj);
+                    //Funciones.cerrarModalCargando();
+                }
+            });
+        }
+
+        function DesactivarCliente() {
+            var objetoForm = new Object();
+            objetoForm.id = parseInt(idCliente);
+            console.log(objetoForm);
+            $.ajax({
+                method: "POST",
+                data: objetoForm,
+                url: 'https://localhost:44398/api/Seguros/DesactivarAfiliado/',
+                beforeSend: function() {
+                    //Funciones.abrirModalCargando();
+                },
+                success: function(data) {
+                    if (data.result == 1) {
+                        alert(data.message);
+                        document.getElementById("div-resultado-busqueda").style.display = "none";
+                    } else {
+                        alert(data.message);
+                    }
+                    console.log(data);
+                    //Funciones.cerrarModalCargando();
+                },
+                error: function(msj) {
+                    console.log(msj);
+                    //Funciones.cerrarModalCargando();
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
